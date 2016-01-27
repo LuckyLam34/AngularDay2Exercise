@@ -96,7 +96,8 @@
     
     
     </div>
-    <div class="row">
+    <div add-product add-item="add(model, year, price, producer)" class="row">
+<!--
       <a ng-click="isOpen = !isOpen" ng-hide="isOpen">Add a new product</a>
       <form class="form-inline" ng-init="isOpen = false" ng-show="isOpen">
         <input type="text" ng-model="modelInput" class="form-control" placeholder="Model...">      
@@ -106,6 +107,7 @@
       </form>
       <br>
       <button ng-click="add()" ng-show="isOpen" class="btn btn-primary">Add</button>
+-->
     </div>
   </div>
   <script src="lib/angular.min.js"></script>

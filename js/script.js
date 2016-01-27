@@ -4,12 +4,12 @@ angular.module('myApp', [])
     $scope.remove = function(product) {  
       ProductService.remove(product);
     };
-    $scope.add = function() {
+    $scope.add = function(modelParam, yearParam, priceParam, producerParam) {
       var product = {
-        model: $scope.modelInput,
-        year: parseInt($scope.modelYear, 10),
-        price: parseInt($scope.modelPrice, 10),
-        producer: $scope.modelProducer,
+        model: modelParam,
+        year: yearParam,
+        price: parseInt(priceParam),
+        producer: producerParam,
         available: true
       };
       

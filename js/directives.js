@@ -10,4 +10,15 @@ angular.module('myApp')
       },
       templateUrl: 'views/productData.html'
     };
+  })
+  .directive('addProduct', function() {
+    
+    return {
+      restrict: 'EA',
+      replace: false,
+      scope: {
+        addItem: '&'
+      },
+      templateUrl: 'views/addProduct.html'
+    }
   });
