@@ -45,16 +45,20 @@
     this.setName = function(newName) {
       privateName = newName;
     };
+
+    this.setAName = function() {
+      privateName = 'lalala';
+    };
     
     this.$get = function() {
       return {
-        name: privateName + 'yay'
+        name: 'yay'
       };
     }
   });
     
   app.config(function(configurableProvider) {
-    configurableProvider.setName('Enjoy life');
+    configurableProvider.setAName();
   });
 
 //  app.controller('myController', ['$scope', 'myService', function($scope, myService) {
