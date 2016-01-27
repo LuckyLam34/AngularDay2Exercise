@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Angular Example</title>
+  <script src="lib/angular.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div ng-app="myApp" ng-controller="myController">
+      <p>From Service: {{serviceName}}</p>
+      <p>From Factory: {{serviceFactory}}</p>
+      <p>From Provider: {{providerName}}</p>
+    </div>
+  </div>
+  <script>
+  var app = angular.module('myApp', []);
+
+  //defining service
+  app.service('myService', function() {
+    this.name = '';
+
+    this.setName = function(newName) {
+      this.name = newName;
+
+      return this.name;
+    }
+  });
+
+  //defining factory
+  app.factory('myFactory', function() {
+    var serviceObj = {};
+    serviceObj.name = '';
+    serviceObj.setName = function(newName) {
+      serviceObj.name = newName;
+    };
+    
+    return serviceObj;
+  });
+    
+  app.provider('configurable', function() {
+    var privateName = '';
+    
+    this.setName = function(newName) {
+      privateName = newName;
+    };
+    
+    this.$get = function() {
+      return {
+        name: privateName + 'yay'
+      };
+    }
+  });
+    
+  app.config(function(configurableProvider) {
+    configurableProvider.setName('Enjoy life');
+  });
+
+//  app.controller('myController', ['$scope', 'myService', function($scope, myService) {
+//    $scope.serviceName = myService.setName('Lucky');
+//  }]);
+//    app.controller('myController', ['$scope', 'myFactory', function($scope, myFactory) {
+//      myFactory.setName('Kool');
+//      console.log(myFactory);
+//      $scope.serviceFactory = myFactory.name;
+//      
+//    }]);
+    
+    app.controller('myController', function($scope, configurable) {
+      console.log('hi');
+      $scope.providerName = configurable.name;
+    });
+    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<tr>
+  <td>{{ item.model }}</td>
+  <td>{{ item.year }}</td>
+
+  <td>{{ item.price | CurrencySymbolFilter }}</td>
+  <td>{{ item.producer}}</td>
+  <td><input type="checkbox" ng-checked="product.available === true"></td>
+  <td><a ng-click="remove(product)"><span class="glyphicon glyphicon-remove"></span></a></td>
+</tr>
