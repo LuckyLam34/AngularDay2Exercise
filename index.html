@@ -87,7 +87,7 @@
           <td></td>
           <td></td>
         </tr>
-        <tr ng-repeat="product in products" | filter: model | filter: year | filter: price | filter: producer | orderBy:predicate:reverse product-list item="product">
+        <tr ng-repeat="product in products | filter: model | filter: year | filter: price | filter: producer | orderBy:predicate:reverse" product-list item="product" remove-item="remove(product)">
           
         </tr>
       </tbody>

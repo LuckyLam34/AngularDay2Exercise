@@ -5,7 +5,8 @@ angular.module('myApp')
       restrict: 'EA',
       replace: false,
       scope: {
-        item: '='
+        item: '=',
+        removeItem: '&'
       },
       templateUrl: 'views/productData.html'
     };

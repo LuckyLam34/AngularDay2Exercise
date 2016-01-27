@@ -5,5 +5,5 @@
   <td>{{ item.price | CurrencySymbolFilter }}</td>
   <td>{{ item.producer}}</td>
   <td><input type="checkbox" ng-checked="product.available === true"></td>
-  <td><a ng-click="remove(product)"><span class="glyphicon glyphicon-remove"></span></a></td>
+  <td><a ng-click="removeItem({product: item})"><span class="glyphicon glyphicon-remove"></span></a></td>
 </tr>
